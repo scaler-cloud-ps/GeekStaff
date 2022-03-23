@@ -1,16 +1,11 @@
-#server
-server:
-  port: 8082
-
 spring:
+  application:
+    name: gateway
   cloud:
     nacos:
       server-addr: 121.40.105.94:8848
       config:
-        namespace: develop
+        namespace: 141377cb-e674-4844-bf72-596f0b44bc30
         group: pangsong
         file-extension: yml
-      discovery:
-        namespace: develop
-        group: geek
 

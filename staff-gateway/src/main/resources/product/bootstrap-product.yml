@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      config:
+        server-addr: 121.40.105.94:8848
+        file-extension: yml
+        group: geek
+        namespace: product

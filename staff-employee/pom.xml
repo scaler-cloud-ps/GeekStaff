@@ -81,10 +81,57 @@
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
         </dependency>
+        <!-- 分页依赖 -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+        </dependency>
+        <!-- 公共工具包 -->
+        <dependency>
+            <groupId>com.geek</groupId>
+            <artifactId>staff-common</artifactId>
+        </dependency>
+        <!-- spring-cloud-dependencies 2020.0.0 版本不在默认加载bootstrap 文件，如果需要加载bootstrap 文件需要手动添加依赖 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
     </dependencies>
+
+    <!-- 多环境文件配置 -->
+    <profiles>
+        <profile>
+            <id>develop</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <activatedProperties>develop</activatedProperties>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <activatedProperties>test</activatedProperties>
+            </properties>
+        </profile>
+        <profile>
+            <id>product</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <activatedProperties>product</activatedProperties>
+            </properties>
+        </profile>
+    </profiles>
 
     <build>
         <plugins>
+            <!-- maven打包插件，剔除掉lombak包 -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -98,6 +145,27 @@
                 </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <!-- 指定resources插件处理目录下的资源文件 -->
+                <directory>src/main/resources</directory>
+                <!-- 打包时先剔除掉以下配置文件 -->
+                <excludes>
+                    <exclude>develop/*</exclude>
+                    <exclude>test/*</exclude>
+                    <exclude>product/*</exclude>
+                </excludes>
+                <!-- 打开资源过滤功能 -->
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources/${activatedProperties}</directory>
+                <includes>
+                    <include>bootstrap-${activatedProperties}.yml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
 
 </project>
