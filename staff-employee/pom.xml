@@ -96,6 +96,10 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.geek</groupId>
+            <artifactId>staff-common</artifactId>
+        </dependency>
     </dependencies>
 
     <!-- 多环境文件配置 -->
