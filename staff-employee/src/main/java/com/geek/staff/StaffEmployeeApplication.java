@@ -1,4 +1,4 @@
-package com.geek.staff.employee;
+package com.geek.staff;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

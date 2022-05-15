@@ -7,4 +7,4 @@ spring:
         server-addr: 121.40.105.94:8848
         file-extension: yml
         group: pangsong
-        namespace: develop
+        namespace: 141377cb-e674-4844-bf72-596f0b44bc30

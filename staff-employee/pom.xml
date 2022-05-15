@@ -26,10 +26,6 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
         <!-- springboot热部署 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -43,11 +39,17 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-        <!-- springboot测试启动依赖 -->
+        <!-- springboot测试依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!-- mybatis启动依赖 -->
         <dependency>
@@ -66,11 +68,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <!-- springcloud网关启动依赖 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
-        </dependency>
         <!-- springcloud-openfeign启动依赖 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -82,10 +79,10 @@
             <artifactId>druid</artifactId>
         </dependency>
         <!-- 分页依赖 -->
-        <dependency>
+        <!--<dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
-        </dependency>
+        </dependency>-->
         <!-- 公共工具包 -->
         <dependency>
             <groupId>com.geek</groupId>
@@ -95,10 +92,6 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.geek</groupId>
-            <artifactId>staff-common</artifactId>
         </dependency>
     </dependencies>
 
